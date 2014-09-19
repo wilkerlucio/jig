@@ -37,5 +37,6 @@
                 config))))
   (stop [_ system]
     (when-let [server (get-in system [(:jig/id config) :server])]
-      (.stop server))
+      (.stop server)
+      (.join server))
     (dissoc system (:jig/id config))))
